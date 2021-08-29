@@ -18,6 +18,16 @@ const BreedingForm = (props) => {
 
 
     useEffect(() => {
+
+        const getOffspring = () => {
+            const generation = father.generation + mother.generation
+            return {
+                generation: generation > 268 ? 268 : generation,
+                bloodline: BLOODLINE_MAP[mother.bloodline][father.bloodline],
+                breedType: BREED_TYPE_MAP[mother.breedType][father.breedType]
+            }
+        }
+
         if (father && mother) {
             setOffspring(getOffspring())
         }
@@ -36,14 +46,6 @@ const BreedingForm = (props) => {
         })
     }
 
-    const getOffspring = () => {
-        const generation = father.generation + mother.generation
-        return {
-            generation: generation > 268 ? 268 : generation,
-            bloodline: BLOODLINE_MAP[mother.bloodline][father.bloodline],
-            breedType: BREED_TYPE_MAP[mother.breedType][father.breedType]
-        }
-    }
 
     return (<>
         <Row className="mb-2">
