@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
-import { Button, FloatingLabel, Form, Row, Col } from "react-bootstrap"
+import { Button, FloatingLabel, Form, Row, Col, Spinner } from "react-bootstrap"
 import moment from 'moment'
 import HorseForm from './HorseForm';
 import { BLOODLINE_MAP, BREED_TYPE_MAP } from "../constants";
 import { v4 as uuid } from 'uuid'
+// import { getReport } from '../utils/mocks';
+import { getReport } from '../utils/network';
 
 const BreedingForm = (props) => {
 
     const { onSubmit } = props
+
+    const [loading, setLoading] = useState(false)
 
     const [father, setFather] = useState()
     const [mother, setMother] = useState()
@@ -34,8 +38,10 @@ const BreedingForm = (props) => {
     }, [father, mother])
 
 
-    const submit = () => {
-        onSubmit({
+    const submit = async () => {
+        setLoading(true)
+
+        const res = await getReport({
             id: uuid(),
             father,
             mother,
@@ -44,6 +50,9 @@ const BreedingForm = (props) => {
             toDate,
             studFee
         })
+
+        onSubmit(res)
+        setLoading(false)
     }
 
 
@@ -85,7 +94,22 @@ const BreedingForm = (props) => {
                         </Col>
                         <Col md>
                             <div className="d-grid" style={{ height: '100%' }}>
-                                <Button variant='primary' type="button" onClick={submit}>Submit</Button>
+                                <Button disabled={loading} variant='primary' type="button" onClick={submit}>
+
+                                    {loading
+                                        ? <>
+                                            <Spinner
+                                                as="span"
+                                                animation="grow"
+                                                size="sm"
+                                                role="status"
+                                                aria-hidden="true"
+                                                style={{ marginRight: '5px' }}
+                                            />
+                                            Loading...
+                                        </>
+                                        : 'Submit'}
+                                </Button>
                             </div>
                         </Col>
 

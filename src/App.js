@@ -2,8 +2,6 @@ import { Container } from 'react-bootstrap'
 import ReportTable from './components/ResultTable';
 import BreedingForm from './components/BreedingForm';
 import { useState } from 'react';
-// import { getReport } from './utils/mocks';
-import { getReport } from './utils/network';
 
 function App() {
 
@@ -11,9 +9,8 @@ function App() {
 
   return (
     <Container fluid>
-      <BreedingForm onSubmit={async (criteria) => {
-        const res = await getReport(criteria)
-        setReports([res, ...reports])
+      <BreedingForm onSubmit={report => {
+        setReports([report, ...reports])
       }} />
 
       <div className="my-4">
