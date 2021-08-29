@@ -3,7 +3,6 @@ import _ from 'lodash'
 import { useEffect, useState } from "react"
 import { BUTERIN, ELITE, EXCLUSIVE, FINNEY, GENESIS, LEGENDARY, NAKAMOTO, CROSS, PACER, SZABO } from "../constants"
 
-const avgPrice = 0.5
 const HorseForm = (props) => {
 
     const { status, selectedHorse, disabled, onUpdated } = props
