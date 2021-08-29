@@ -10,7 +10,7 @@ const ResultTable = (props) => {
         if (price === null) {
             return 'N/A'
         } else {
-            return price.toFixed(2) + ' ETH'
+            return price.toFixed(4) + ' ETH'
         }
     }
 
@@ -27,8 +27,11 @@ const ResultTable = (props) => {
             <Card.Body>
                 <Row className="mb-2">
                     <Col md className="d-flex align-items-center">
-                        <Badge bg="light" text="dark">
+                        <Badge bg="light" text="dark" className="mr-2">
                             Dates: {moment(fromDate).format('LL')} - {moment(toDate).format('LL')}
+                        </Badge>
+                        <Badge bg="light" text="dark">
+                            Stud fee: {renderPrice(studFee)}
                         </Badge>
                     </Col>
                     <Col md className="d-flex  align-items-center justify-content-end">
@@ -38,7 +41,7 @@ const ResultTable = (props) => {
                 </Row>
                 <Row>
                     <Col md>
-                        <Table striped bordered hover>
+                        <Table bordered hover>
                             <thead>
                                 <tr>
                                     <th>Parents</th>
@@ -79,7 +82,7 @@ const ResultTable = (props) => {
 
                 <Row>
                     <Col md>
-                        <Table striped bordered hover>
+                        <Table bordered hover>
                             <thead>
                                 <tr>
                                     <th>Offspring</th>
