@@ -26,4 +26,4 @@ export const BREED_TYPE_MAP = {
     [PACER]: { [GENESIS]: PACER, [LEGENDARY]: PACER, [EXCLUSIVE]: PACER, [ELITE]: PACER, [CROSS]: PACER, [PACER]: PACER },
 }
 
-export const ENDPOINT = 'http://localhost:3005'
+export const ENDPOINT = 'https://www.nft-whale.makadev.com/api-v1'
