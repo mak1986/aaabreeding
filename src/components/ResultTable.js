@@ -1,4 +1,4 @@
-import { Alert, Table, Row, Col, Button, Badge, Card } from "react-bootstrap"
+import { Table, Row, Col, Button, Badge, Card } from "react-bootstrap"
 import moment from 'moment'
 
 const ResultTable = (props) => {
