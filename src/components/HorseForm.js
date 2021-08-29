@@ -19,6 +19,7 @@ const HorseForm = (props) => {
         if (typeof onUpdated === 'function') {
             onUpdated(horse)
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [horse])
 
     useEffect(() => {
