@@ -18,7 +18,7 @@ const BreedingForm = (props) => {
     const [offspring, setOffspring] = useState()
     const [fromDate, setFromDate] = useState(moment().subtract(3, 'month').format('YYYY-MM-DD'))
     const [toDate, setToDate] = useState(moment().format('YYYY-MM-DD'))
-    const [studFee, setStudFee] = useState(0.1)
+    const [studFee, setStudFee] = useState(0.3)
 
 
     useEffect(() => {
@@ -88,7 +88,7 @@ const BreedingForm = (props) => {
                         <Col md>
                             <FloatingLabel controlId='horse-form.to-date' label='Stud Fee (ETH)'>
                                 <Form.Control defaultValue={studFee} type="number" onChange={e => {
-                                    setStudFee(e.target.studFee)
+                                    setStudFee(parseFloat(e.target.value))
                                 }} />
                             </FloatingLabel>
                         </Col>
