@@ -1,5 +1,7 @@
-import { Table, Row, Col, Button, Badge, Card } from "react-bootstrap"
+import { Table, Row, Col, Button, Badge, Card, Image } from "react-bootstrap"
 import moment from 'moment'
+import { FATHER, HORSE_IMAGES, MOTHER, OFFSPRING } from "../constants"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const ResultTable = (props) => {
 
@@ -44,7 +46,7 @@ const ResultTable = (props) => {
                         <Table bordered hover>
                             <thead>
                                 <tr>
-                                    <th>Parents</th>
+                                    <th colSpan={2}>Parents</th>
                                     <th>Generation</th>
                                     <th>Bloodline</th>
                                     <th>Breed Type</th>
@@ -56,36 +58,51 @@ const ResultTable = (props) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Father</td>
-                                    <td>{father.generation}</td>
-                                    <td>{father.bloodline}</td>
-                                    <td>{father.breedType}</td>
-                                    <td>{renderPrice(father.minPrice)}</td>
-                                    <td>{renderPrice(father.avgPrice)}</td>
-                                    <td>{renderPrice(father.maxPrice)}</td>
-                                    <td>{father.sales}</td>
+                                    <td width={65} className="p-1">
+                                        <Image width="56" src={HORSE_IMAGES[FATHER]} />
+                                    </td>
+                                    <td className="align-middle">Father</td>
+                                    <td className="align-middle">{father.generation}</td>
+                                    <td className="align-middle">{father.bloodline}</td>
+                                    <td className="align-middle">{father.breedType}</td>
+                                    <td className="align-middle">{renderPrice(father.minPrice)}</td>
+                                    <td className="align-middle">{renderPrice(father.avgPrice)}</td>
+                                    <td className="align-middle">{renderPrice(father.maxPrice)}</td>
+                                    <td className="align-middle">{father.sales}</td>
                                 </tr>
                                 <tr>
-                                    <td>Mother</td>
-                                    <td>{mother.generation}</td>
-                                    <td>{mother.bloodline}</td>
-                                    <td>{mother.breedType}</td>
-                                    <td>{renderPrice(mother.minPrice)}</td>
-                                    <td>{renderPrice(mother.avgPrice)}</td>
-                                    <td>{renderPrice(mother.maxPrice)}</td>
-                                    <td>{mother.sales}</td>
+                                    <td width={65} className="p-1">
+                                        <Image width="56" src={HORSE_IMAGES[MOTHER]} />
+                                    </td>
+                                    <td className="align-middle">Mother</td>
+                                    <td className="align-middle">{mother.generation}</td>
+                                    <td className="align-middle">{mother.bloodline}</td>
+                                    <td className="align-middle">{mother.breedType}</td>
+                                    <td className="align-middle">{renderPrice(mother.minPrice)}</td>
+                                    <td className="align-middle">{renderPrice(mother.avgPrice)}</td>
+                                    <td className="align-middle">{renderPrice(mother.maxPrice)}</td>
+                                    <td className="align-middle">{mother.sales}</td>
                                 </tr>
                             </tbody>
                         </Table>
                     </Col>
                 </Row>
+                <Row>
+            <Col md>
+                <div className="d-grid">
+                    <Button variant="light" disabled className="mb-2" style={{ padding: 0 }}>
+                        <FontAwesomeIcon style={{ padding: '5px', fontSize: '1.5rem', color: 'cornflowerblue' }} icon={['fas', 'arrow-down']} />
+                    </Button>
+                </div>
 
+            </Col>
+        </Row>
                 <Row>
                     <Col md>
                         <Table bordered hover>
                             <thead>
                                 <tr>
-                                    <th>Offspring</th>
+                                    <th colSpan={3}>Offspring</th>
                                     <th>Generation</th>
                                     <th>Bloodline</th>
                                     <th>Breed Type</th>
@@ -98,26 +115,38 @@ const ResultTable = (props) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Male offspring</td>
-                                    <td>{maleOffspring.generation}</td>
-                                    <td>{maleOffspring.bloodline}</td>
-                                    <td>{maleOffspring.breedType}</td>
-                                    <td>{renderPrice(maleOffspring.minPrice)}</td>
-                                    <td>{renderPrice(maleOffspring.avgPrice)}</td>
-                                    <td>{renderPrice(maleOffspring.maxPrice)}</td>
-                                    <td>{maleOffspring.sales}</td>
-                                    <td>{renderRoi(maleOffspring.avgPrice)}</td>
+                                    <td width={65} className="p-1">
+                                        <Image width="56" src={HORSE_IMAGES[OFFSPRING]} />
+                                    </td>
+                                    <td width={65} className="p-1 align-middle text-center">
+                                    <FontAwesomeIcon  style={{ fontSize: '2rem', color: 'cornflowerblue' }} icon={['fas', 'mars']}/>
+                                    </td>
+                                    <td className="align-middle">Male</td>
+                                    <td className="align-middle">{maleOffspring.generation}</td>
+                                    <td className="align-middle">{maleOffspring.bloodline}</td>
+                                    <td className="align-middle">{maleOffspring.breedType}</td>
+                                    <td className="align-middle">{renderPrice(maleOffspring.minPrice)}</td>
+                                    <td className="align-middle">{renderPrice(maleOffspring.avgPrice)}</td>
+                                    <td className="align-middle">{renderPrice(maleOffspring.maxPrice)}</td>
+                                    <td className="align-middle">{maleOffspring.sales}</td>
+                                    <td className="align-middle bg-success text-white fw-bold">{renderRoi(maleOffspring.avgPrice)}</td>
                                 </tr>
                                 <tr>
-                                    <td>Female offspring</td>
-                                    <td>{femaleOffspring.generation}</td>
-                                    <td>{femaleOffspring.bloodline}</td>
-                                    <td>{femaleOffspring.breedType}</td>
-                                    <td>{renderPrice(femaleOffspring.minPrice)}</td>
-                                    <td>{renderPrice(femaleOffspring.avgPrice)}</td>
-                                    <td>{renderPrice(femaleOffspring.maxPrice)}</td>
-                                    <td>{femaleOffspring.sales}</td>
-                                    <td>{renderRoi(femaleOffspring.avgPrice)}</td>
+                                    <td width={65} className="p-1">
+                                        <Image width="56" src={HORSE_IMAGES[OFFSPRING]} />
+                                    </td>
+                                    <td width={65} className="p-1 align-middle text-center">
+                                    <FontAwesomeIcon  style={{ fontSize: '2rem', color: '#ed6495' }} icon={['fas', 'venus']}/>
+                                    </td>
+                                    <td className="align-middle">Female</td>
+                                    <td className="align-middle">{femaleOffspring.generation}</td>
+                                    <td className="align-middle">{femaleOffspring.bloodline}</td>
+                                    <td className="align-middle">{femaleOffspring.breedType}</td>
+                                    <td className="align-middle">{renderPrice(femaleOffspring.minPrice)}</td>
+                                    <td className="align-middle">{renderPrice(femaleOffspring.avgPrice)}</td>
+                                    <td className="align-middle">{renderPrice(femaleOffspring.maxPrice)}</td>
+                                    <td className="align-middle">{femaleOffspring.sales}</td>
+                                    <td className="align-middle bg-success text-white fw-bold">{renderRoi(femaleOffspring.avgPrice)}</td>
                                 </tr>
                             </tbody>
                         </Table>

@@ -26,4 +26,14 @@ export const BREED_TYPE_MAP = {
     [PACER]: { [GENESIS]: PACER, [LEGENDARY]: PACER, [EXCLUSIVE]: PACER, [ELITE]: PACER, [CROSS]: PACER, [PACER]: PACER },
 }
 
+export const FATHER = 'Father'
+export const MOTHER = 'Mother'
+export const OFFSPRING = 'Offspring'
+
+export const HORSE_IMAGES = {
+    [FATHER]: 'https://img.zed.run/horses/0048BA.png',
+    [MOTHER]: 'https://img.zed.run/horses/B22222.png',
+    [OFFSPRING]: 'https://img.zed.run/horses/FFF8DC.png'
+}
+
 export const ENDPOINT = 'https://www.nft-whale.makadev.com/api-v1'

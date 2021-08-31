@@ -2,6 +2,11 @@ import { Container } from 'react-bootstrap'
 import ReportTable from './components/ResultTable';
 import BreedingForm from './components/BreedingForm';
 import { useState } from 'react';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {fas} from '@fortawesome/free-solid-svg-icons'
+
+library.add(fas)
+
 
 function App() {
 

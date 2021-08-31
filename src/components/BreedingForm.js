@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { Button, FloatingLabel, Form, Row, Col, Spinner } from "react-bootstrap"
 import moment from 'moment'
 import HorseForm from './HorseForm';
-import { BLOODLINE_MAP, BREED_TYPE_MAP } from "../constants";
+import { BLOODLINE_MAP, BREED_TYPE_MAP, FATHER, MOTHER, OFFSPRING } from "../constants";
 import { v4 as uuid } from 'uuid'
 // import { getReport } from '../utils/mocks';
 import { getReport } from '../utils/network';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const BreedingForm = (props) => {
 
@@ -26,6 +27,7 @@ const BreedingForm = (props) => {
         const getOffspring = () => {
             const generation = father.generation + mother.generation
             return {
+                status: OFFSPRING,
                 generation: generation > 268 ? 268 : generation,
                 bloodline: BLOODLINE_MAP[mother.bloodline][father.bloodline],
                 breedType: BREED_TYPE_MAP[mother.breedType][father.breedType]
@@ -58,13 +60,33 @@ const BreedingForm = (props) => {
 
     return (<>
         <Row className="mb-2">
-            <Col md><HorseForm status='Father' onUpdated={(horse) => setFather(horse)} /></Col>
+            <Col md><HorseForm status={FATHER} onUpdated={(horse) => setFather(horse)} /></Col>
+        </Row>
+        <Row>
+            <Col md>
+                <div className="d-grid">
+                    <Button variant="light" disabled className="mb-2" style={{ padding: 0 }}>
+                        <FontAwesomeIcon style={{ padding: '5px', fontSize: '1.5rem', color: 'cornflowerblue' }} icon={['fas', 'plus']} />
+                    </Button>
+                </div>
+
+            </Col>
         </Row>
         <Row className="mb-2">
-            <Col md><HorseForm status='Mother' onUpdated={(horse) => setMother(horse)} /></Col>
+            <Col md><HorseForm status={MOTHER} onUpdated={(horse) => setMother(horse)} /></Col>
+        </Row>
+        <Row>
+            <Col md>
+                <div className="d-grid">
+                    <Button variant="light" disabled className="mb-2" style={{ padding: 0 }}>
+                        <FontAwesomeIcon style={{ padding: '5px', fontSize: '1.5rem', color: 'cornflowerblue' }} icon={['fas', 'arrow-down']} />
+                    </Button>
+                </div>
+
+            </Col>
         </Row>
         <Row className="mb-2">
-            <Col md><HorseForm status='Offspring' selectedHorse={offspring} disabled /></Col>
+            <Col md><HorseForm status={OFFSPRING} selectedHorse={offspring} disabled /></Col>
         </Row>
         <Row>
             <Col md>

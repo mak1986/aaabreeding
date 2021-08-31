@@ -1,7 +1,7 @@
-import { FloatingLabel, Form, Row, Col, Spinner, Button } from "react-bootstrap"
+import { FormControl, FloatingLabel, Form, Row, Col, Spinner, Button, Image, InputGroup } from "react-bootstrap"
 import _ from 'lodash'
 import { useEffect, useState } from "react"
-import { BUTERIN, ELITE, EXCLUSIVE, FINNEY, GENESIS, LEGENDARY, NAKAMOTO, CROSS, PACER, SZABO } from "../constants"
+import { BUTERIN, ELITE, EXCLUSIVE, FINNEY, GENESIS, LEGENDARY, NAKAMOTO, CROSS, PACER, SZABO, HORSE_IMAGES } from "../constants"
 
 const HorseForm = (props) => {
 
@@ -14,20 +14,28 @@ const HorseForm = (props) => {
         bloodline: NAKAMOTO,
         breedType: GENESIS
     })
+    const [img, setImg] = useState('')
 
     useEffect(() => {
+
+        setImg(HORSE_IMAGES[horse.status])
+        
         if (typeof onUpdated === 'function') {
             onUpdated(horse)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [horse])
 
+    useEffect(()=>{
+        setImg(HORSE_IMAGES[horse.status])
+    }, [status])
+
     useEffect(() => {
 
         if (selectedHorse && !_.isEqual(selectedHorse, horse)) {
             setLoading(true)
             setHorse(selectedHorse)
-            setTimeout(()=>{
+            setTimeout(() => {
                 setLoading(false)
             }, 1000)
         }
@@ -49,17 +57,30 @@ const HorseForm = (props) => {
                                         size="sm"
                                         role="status"
                                         aria-hidden="true"
-                                        style={{marginRight: '5px'}}
+                                        style={{ marginRight: '5px' }}
                                     />
                                     Loading...
                                 </Button>
                             </div>
                         </Col>
                         : <>
-                            <Col md>
-                                <FloatingLabel controlId='horse-form.status' label='Status'>
-                                    <Form.Control disabled type="text" value={status} />
-                                </FloatingLabel>
+                            <Col md className="d-flex">
+                                <InputGroup>
+                                    <InputGroup.Text id="basic-addon1" style={{ padding: 0 }}>
+                                        <Image width="56" src={img} thumbnail />
+
+                                    </InputGroup.Text>
+
+                                    <FormControl
+                                        placeholder="Username"
+                                        aria-label="Username"
+                                        aria-describedby="basic-addon1"
+                                        value={status}
+                                        disabled
+                                    />
+                                </InputGroup>
+
+
                             </Col>
                             <Col md>
                                 <FloatingLabel controlId='horse-form.generation' label='Generation'>
