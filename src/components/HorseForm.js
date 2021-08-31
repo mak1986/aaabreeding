@@ -26,10 +26,6 @@ const HorseForm = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [horse])
 
-    useEffect(()=>{
-        setImg(HORSE_IMAGES[horse.status])
-    }, [status])
-
     useEffect(() => {
 
         if (selectedHorse && !_.isEqual(selectedHorse, horse)) {
