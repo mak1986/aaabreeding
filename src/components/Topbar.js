@@ -31,9 +31,9 @@ const Topbar = () => {
             <Row>
                 <Col md className="d-flex justify-content-end">
                     <p className="mb-1">
-                        <span>Link to&nbsp;<a  rel="noreferrer" target="_blank" href="https://aaabreeding.app">https://aaabreeding.app</a></span>
+                        <span>Link to&nbsp;<a rel="noreferrer" target="_blank" href="https://aaabreeding.app">https://aaabreeding.app</a></span>
                         &nbsp;|&nbsp;
-                        <span><a href="#" style={{cursor: 'pointer'}} className="text-decoration-underline" onClick={() => setDialogActive(true)}>Embed</a></span>
+                        <span style={{cursor: 'pointer'}} className="text-decoration-underline" onClick={() => setDialogActive(true)}>Embed</span>
                     </p>
 
                 </Col>
