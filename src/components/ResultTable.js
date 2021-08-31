@@ -2,6 +2,7 @@ import { Table, Row, Col, Button, Badge, Card, Image } from "react-bootstrap"
 import moment from 'moment'
 import { FATHER, HORSE_IMAGES, MOTHER, OFFSPRING } from "../constants"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { getOpenseaLink } from "../utils/helper"
 
 const ResultTable = (props) => {
 
@@ -46,7 +47,7 @@ const ResultTable = (props) => {
                         <Table bordered hover>
                             <thead>
                                 <tr>
-                                    <th colSpan={2}>Parents</th>
+                                    <th colSpan={3}>Parents</th>
                                     <th>Generation</th>
                                     <th>Bloodline</th>
                                     <th>Breed Type</th>
@@ -62,7 +63,12 @@ const ResultTable = (props) => {
                                         <Image width="56" src={HORSE_IMAGES[FATHER]} />
                                     </td>
                                     <td className="align-middle">Father</td>
-                                    <td className="align-middle">{father.generation}</td>
+                                    <td width={65} className="p-2">
+                                        <a href={getOpenseaLink(father, 'male')} target='_blank'>
+                                            <Image width="46" src='https://theme.zdassets.com/theme_assets/10680073/849d25f48ee0ef0a59561f196691948f14b80eb9.png' />
+                                        </a>
+                                    </td>
+                                    <td className="align-middle">Z{father.generation}</td>
                                     <td className="align-middle">{father.bloodline}</td>
                                     <td className="align-middle">{father.breedType}</td>
                                     <td className="align-middle">{renderPrice(father.minPrice)}</td>
@@ -75,7 +81,12 @@ const ResultTable = (props) => {
                                         <Image width="56" src={HORSE_IMAGES[MOTHER]} />
                                     </td>
                                     <td className="align-middle">Mother</td>
-                                    <td className="align-middle">{mother.generation}</td>
+                                    <td width={65} className="p-2">
+                                        <a href={getOpenseaLink(mother, 'female')} target='_blank'>
+                                            <Image width="46" src='https://theme.zdassets.com/theme_assets/10680073/849d25f48ee0ef0a59561f196691948f14b80eb9.png' />
+                                        </a>
+                                    </td>
+                                    <td className="align-middle">Z{mother.generation}</td>
                                     <td className="align-middle">{mother.bloodline}</td>
                                     <td className="align-middle">{mother.breedType}</td>
                                     <td className="align-middle">{renderPrice(mother.minPrice)}</td>
@@ -88,21 +99,21 @@ const ResultTable = (props) => {
                     </Col>
                 </Row>
                 <Row>
-            <Col md>
-                <div className="d-grid">
-                    <Button variant="light" disabled className="mb-2" style={{ padding: 0 }}>
-                        <FontAwesomeIcon style={{ padding: '5px', fontSize: '1.5rem', color: 'cornflowerblue' }} icon={['fas', 'arrow-down']} />
-                    </Button>
-                </div>
+                    <Col md>
+                        <div className="d-grid">
+                            <Button variant="light" disabled className="mb-2" style={{ padding: 0 }}>
+                                <FontAwesomeIcon style={{ padding: '5px', fontSize: '1.5rem', color: 'cornflowerblue' }} icon={['fas', 'arrow-down']} />
+                            </Button>
+                        </div>
 
-            </Col>
-        </Row>
+                    </Col>
+                </Row>
                 <Row>
                     <Col md>
                         <Table bordered hover>
                             <thead>
                                 <tr>
-                                    <th colSpan={3}>Offspring</th>
+                                    <th colSpan={4}>Offspring</th>
                                     <th>Generation</th>
                                     <th>Bloodline</th>
                                     <th>Breed Type</th>
@@ -119,10 +130,15 @@ const ResultTable = (props) => {
                                         <Image width="56" src={HORSE_IMAGES[OFFSPRING]} />
                                     </td>
                                     <td width={65} className="p-1 align-middle text-center">
-                                    <FontAwesomeIcon  style={{ fontSize: '2rem', color: 'cornflowerblue' }} icon={['fas', 'mars']}/>
+                                        <FontAwesomeIcon style={{ fontSize: '2rem', color: 'cornflowerblue' }} icon={['fas', 'mars']} />
                                     </td>
                                     <td className="align-middle">Male</td>
-                                    <td className="align-middle">{maleOffspring.generation}</td>
+                                    <td width={65} className="p-2">
+                                        <a href={getOpenseaLink(maleOffspring, 'male')} target='_blank'>
+                                            <Image width="46" src='https://theme.zdassets.com/theme_assets/10680073/849d25f48ee0ef0a59561f196691948f14b80eb9.png' />
+                                        </a>
+                                    </td>
+                                    <td className="align-middle">Z{maleOffspring.generation}</td>
                                     <td className="align-middle">{maleOffspring.bloodline}</td>
                                     <td className="align-middle">{maleOffspring.breedType}</td>
                                     <td className="align-middle">{renderPrice(maleOffspring.minPrice)}</td>
@@ -136,10 +152,15 @@ const ResultTable = (props) => {
                                         <Image width="56" src={HORSE_IMAGES[OFFSPRING]} />
                                     </td>
                                     <td width={65} className="p-1 align-middle text-center">
-                                    <FontAwesomeIcon  style={{ fontSize: '2rem', color: '#ed6495' }} icon={['fas', 'venus']}/>
+                                        <FontAwesomeIcon style={{ fontSize: '2rem', color: '#ed6495' }} icon={['fas', 'venus']} />
                                     </td>
                                     <td className="align-middle">Female</td>
-                                    <td className="align-middle">{femaleOffspring.generation}</td>
+                                    <td width={65} className="p-2">
+                                        <a href={getOpenseaLink(femaleOffspring, 'female')} target='_blank'>
+                                            <Image width="46" src='https://theme.zdassets.com/theme_assets/10680073/849d25f48ee0ef0a59561f196691948f14b80eb9.png' />
+                                        </a>
+                                    </td>
+                                    <td className="align-middle">Z{femaleOffspring.generation}</td>
                                     <td className="align-middle">{femaleOffspring.bloodline}</td>
                                     <td className="align-middle">{femaleOffspring.breedType}</td>
                                     <td className="align-middle">{renderPrice(femaleOffspring.minPrice)}</td>

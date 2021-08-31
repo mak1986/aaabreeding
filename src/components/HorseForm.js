@@ -1,7 +1,8 @@
 import { FormControl, FloatingLabel, Form, Row, Col, Spinner, Button, Image, InputGroup } from "react-bootstrap"
 import _ from 'lodash'
 import { useEffect, useState } from "react"
-import { BUTERIN, ELITE, EXCLUSIVE, FINNEY, GENESIS, LEGENDARY, NAKAMOTO, CROSS, PACER, SZABO, HORSE_IMAGES } from "../constants"
+import { BUTERIN, ELITE, EXCLUSIVE, FINNEY, GENESIS, LEGENDARY, NAKAMOTO, CROSS, PACER, SZABO, HORSE_IMAGES, FATHER, MOTHER } from "../constants"
+import { getOpenseaLink } from "../utils/helper"
 
 const HorseForm = (props) => {
 
@@ -19,7 +20,7 @@ const HorseForm = (props) => {
     useEffect(() => {
 
         setImg(HORSE_IMAGES[horse.status])
-        
+
         if (typeof onUpdated === 'function') {
             onUpdated(horse)
         }
@@ -74,6 +75,11 @@ const HorseForm = (props) => {
                                         value={status}
                                         disabled
                                     />
+                                    <InputGroup.Text id="basic-addon1" style={{ padding: 0 }}>
+                                        <a href={getOpenseaLink(horse, status === FATHER ? 'male' : (status === MOTHER ? 'female' : null))} target='_blank'>
+                                            <Image width="56" src='https://theme.zdassets.com/theme_assets/10680073/849d25f48ee0ef0a59561f196691948f14b80eb9.png' thumbnail />
+                                        </a>
+                                    </InputGroup.Text>
                                 </InputGroup>
 
 
@@ -91,7 +97,7 @@ const HorseForm = (props) => {
                                         }
                                         }>
                                         {_.range(1, 269).map((val) => {
-                                            return <option key={val} value={val}>{val}</option>
+                                            return <option key={val} value={val}>Z{val}</option>
                                         })}
                                     </Form.Select>
                                 </FloatingLabel>
