@@ -76,7 +76,7 @@ const HorseForm = (props) => {
                                         disabled
                                     />
                                     <InputGroup.Text id="basic-addon1" style={{ padding: 0 }}>
-                                        <a href={getOpenseaLink(horse, status === FATHER ? 'male' : (status === MOTHER ? 'female' : null))} target='_blank'>
+                                        <a rel="noreferrer" href={getOpenseaLink(horse, status === FATHER ? 'male' : (status === MOTHER ? 'female' : null))} target='_blank'>
                                             <Image width="56" src='https://theme.zdassets.com/theme_assets/10680073/849d25f48ee0ef0a59561f196691948f14b80eb9.png' thumbnail />
                                         </a>
                                     </InputGroup.Text>

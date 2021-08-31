@@ -64,7 +64,7 @@ const ResultTable = (props) => {
                                     </td>
                                     <td className="align-middle">Father</td>
                                     <td width={65} className="p-2">
-                                        <a href={getOpenseaLink(father, 'male')} target='_blank'>
+                                        <a rel="noreferrer" href={getOpenseaLink(father, 'male')} target='_blank'>
                                             <Image width="46" src='https://theme.zdassets.com/theme_assets/10680073/849d25f48ee0ef0a59561f196691948f14b80eb9.png' />
                                         </a>
                                     </td>
@@ -82,7 +82,7 @@ const ResultTable = (props) => {
                                     </td>
                                     <td className="align-middle">Mother</td>
                                     <td width={65} className="p-2">
-                                        <a href={getOpenseaLink(mother, 'female')} target='_blank'>
+                                        <a rel="noreferrer" href={getOpenseaLink(mother, 'female')} target='_blank'>
                                             <Image width="46" src='https://theme.zdassets.com/theme_assets/10680073/849d25f48ee0ef0a59561f196691948f14b80eb9.png' />
                                         </a>
                                     </td>
@@ -134,7 +134,7 @@ const ResultTable = (props) => {
                                     </td>
                                     <td className="align-middle">Male</td>
                                     <td width={65} className="p-2">
-                                        <a href={getOpenseaLink(maleOffspring, 'male')} target='_blank'>
+                                        <a rel="noreferrer" href={getOpenseaLink(maleOffspring, 'male')} target='_blank'>
                                             <Image width="46" src='https://theme.zdassets.com/theme_assets/10680073/849d25f48ee0ef0a59561f196691948f14b80eb9.png' />
                                         </a>
                                     </td>
@@ -156,7 +156,7 @@ const ResultTable = (props) => {
                                     </td>
                                     <td className="align-middle">Female</td>
                                     <td width={65} className="p-2">
-                                        <a href={getOpenseaLink(femaleOffspring, 'female')} target='_blank'>
+                                        <a rel="noreferrer" href={getOpenseaLink(femaleOffspring, 'female')} target='_blank'>
                                             <Image width="46" src='https://theme.zdassets.com/theme_assets/10680073/849d25f48ee0ef0a59561f196691948f14b80eb9.png' />
                                         </a>
                                     </td>
