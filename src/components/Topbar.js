@@ -1,7 +1,7 @@
 import { Modal, Button, Row, Col, Form } from 'react-bootstrap'
 import { useState } from 'react';
 
-const embed = `<iframe src="https://zed-breed-stats.vercel.app" width="960" height="800"></iframe>`
+const embed = `<iframe src="https://aaabreeding.vercel.app" width="960" height="800"></iframe>`
 
 const Topbar = () => {
     
